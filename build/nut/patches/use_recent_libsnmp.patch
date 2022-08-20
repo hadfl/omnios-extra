@@ -1,0 +1,12 @@
+diff -wpruN '--exclude=*.orig' a~/tools/nut-scanner/nutscan-init.c a/tools/nut-scanner/nutscan-init.c
+--- a~/tools/nut-scanner/nutscan-init.c	1970-01-01 00:00:00
++++ a/tools/nut-scanner/nutscan-init.c	1970-01-01 00:00:00
+@@ -147,7 +147,7 @@ void nutscan_init(void)
+ 	}
+ #endif
+ #ifdef WITH_SNMP
+-	libname = get_libname("libnetsnmp.so");
++	libname = get_libname("libnetsnmp.so.40");
+ 	if (libname) {
+ 		nutscan_avail_snmp = nutscan_load_snmp_library(libname);
+ 		free(libname);
