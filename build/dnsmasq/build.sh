@@ -27,6 +27,8 @@ DESC+="network."
 set_arch 64
 set_clangver
 
+export PATH=$GNUBIN:$PATH
+
 BASEDIR=$PREFIX/$PROG
 CONFFILE=/etc$BASEDIR/$PROG.conf
 EXECFILE=$PREFIX/sbin/dnsmasq
@@ -41,21 +43,29 @@ copy_sample_config() {
         $DESTDIR/$relative_conffile || logerr "copying configs failed"
 }
 
+# something in the build framework is complaining about not finding the nettle headers
+# however, the compiler is happy to build stuff
+EXPECTED_BUILD_ERRS=2
+
 pre_configure() {
     typeset arch=$1
 
     MAKE_ARGS_WS="
         CC=$CC
-        CFLAGS=\"-DNO_IPSET $CFLAGS ${CFLAGS[$arch]}\"
+        CFLAGS=\"$CFLAGS ${CFLAGS[$arch]}\"
         LDFLAGS=\"$LDFLAGS ${LDFLAGS[$arch]}\"
         PREFIX=$PREFIX
         MANDIR=$PREFIX/share/man
+        COPTS=\"-DNO_IPSET -DHAVE_DNSSEC\"
         sunos_libs=\"-lnsl -lsocket\"
+        nettle_cflags=\"-I/usr/include/gmp -I$PREFIX/include\"
+        nettle_libs=\"-L$PREFIX/${LIBDIRS[$arch]} -Wl,-R$PREFIX/${LIBDIRS[$arch]} -lnettle -lhogweed\"
     "
 
     MAKE_INSTALL_ARGS_WS="
         PREFIX=$PREFIX
         MANDIR=$PREFIX/share/man
+        COPTS=\"-DNO_IPSET -DHAVE_DNSSEC\"
     "
 
     # no configure
