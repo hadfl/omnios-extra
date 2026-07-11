@@ -24,7 +24,7 @@ DESC="$PROG - an open source web-based music collection server and streamer"
 
 set_arch 64
 set_gover
-set_nodever 24
+set_nodever
 
 RUN_DEPENDS_IPS="
     ooce/multimedia/mediasrv-common
