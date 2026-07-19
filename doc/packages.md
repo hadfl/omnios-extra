@@ -121,7 +121,7 @@
 | ooce/library/guile		| 2.0.14	| https://ftp.gnu.org/gnu/guile/ | [omniosorg](https://github.com/omniosorg)
 | ooce/library/icu4c		| 78.2		| https://github.com/unicode-org/icu/releases | [omniosorg](https://github.com/omniosorg)
 | ooce/library/jansson		| 2.15.1	| https://github.com/akheron/jansson/releases | [omniosorg](https://github.com/omniosorg)
-| ooce/library/json-c		| 0.18		| https://github.com/json-c/json-c/tags https://github.com/json-c/json-c/wiki | [omniosorg](https://github.com/omniosorg)
+| ooce/library/json-c		| 0.19		| https://github.com/json-c/json-c/tags https://github.com/json-c/json-c/wiki | [omniosorg](https://github.com/omniosorg)
 | ooce/library/ldns		| 1.9.0		| https://nlnetlabs.nl/downloads/ldns/ | [omniosorg](https://github.com/omniosorg)
 | ooce/library/libarchive	| 3.8.0		| https://libarchive.org/downloads/ | [omniosorg](https://github.com/omniosorg)
 | ooce/library/libavif		| 1.4.2		| https://github.com/AOMediaCodec/libavif/releases | [omniosorg](https://github.com/omniosorg)
